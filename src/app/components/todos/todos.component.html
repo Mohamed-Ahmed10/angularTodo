@@ -1,0 +1,34 @@
+<div class="todos">
+  <div class="container">
+    <div class="row">
+      <form action="" (submit)="addNew()">
+        <div class="row">
+          <div class="col-9">
+            <input type="text"
+                  placeholder="Enter your task"
+                  class="col-9 inputTodo form-control"
+                  [(ngModel)]="inputTodo"
+                  name="task"
+                  autofocus
+                  >
+          </div>
+        <div class="col-3">
+          <input type="submit"
+                value="Add"
+                class="btn btn-primary"
+                >
+        </div>
+        </div>
+      </form>
+      <div class="todo col-6 my-4" class = "todo {{todo.completed ? 'done' : ''}}" *ngFor="let todo of todos ; let i = index">
+        <div class="card" (click) = "toggleDone(i)">
+          <div class="card-body">
+            <div class="id card-title">{{todo.content}}</div>
+            <!-- <div class="content card-text">{{todo.completed}}</div> -->
+            <button class="btn btn-danger" (click) = "deleteTask(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
